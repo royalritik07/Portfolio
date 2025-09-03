@@ -1,0 +1,687 @@
+.bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  opacity: 0.8;
+  animation: floatUp linear infinite, flicker 2s ease-in-out infinite;
+}
+
+/* Shapes */
+.bubble.circle {
+  border-radius: 50%;
+}
+
+.bubble.triangle {
+  width: 0 !important;
+  height: 0 !important;
+  background: none;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid currentColor;
+}
+
+.bubble.diamond {
+  transform: rotate(45deg);
+}
+
+.bubble.pentagon {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+/* Animations */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.1);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+
+
+
+
+/* === Smooth Scrolling === */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === Section Fade-in Scroll Animation === */
+.scroll-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.scroll-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === Project Card Hover Animation === */
+.projects .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* === Button Hover Transition === */
+.heading button,
+.download-btn {
+    transition: all 0.3s ease;
+}
+
+.heading button:hover,
+.download-btn:hover {
+    background-color: rgb(167 139 250);
+    transform: scale(1.1);
+}
+
+/* === Header Image Fade-in Animation === */
+.heading img {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Skills Box Hover Animation === */
+
+/* === Add Box Shadows for Sections === */
+.about-in,
+.contact-in {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Scroll to Top Button Style === */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #58a6ff;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s;
+}
+
+#scrollToTop:hover {
+    background-color: rgb(167 139 250);
+}
+
+#scrollToTop.show {
+    display: block;
+}
+
+/* === Footer Link Hover Effect === */
+footer a:hover {
+    color: rgb(167 139 250);
+    text-decoration: underline;
+}
+
+
+
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(40, 52, 69);
+    color: #ffffff;
+}
+a {
+    text-decoration: none;
+    color: #58a6ff;
+}
+h1, h2 {
+    color: rgb(167 139 250);
+}
+
+/* Navbar */
+nav {
+    /* background-color: #14181c; */
+    /* width: 10%; */
+    /* margin: 0 auto; */
+    border-radius: 16px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
+    /* position: sticky;  */
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: #c9d1d9;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    background-color: #7b40e1;
+    box-shadow: 0 2px 8px rgba(31, 111, 235, 0.4);
+}
+
+
+/* Heading Section */
+.heading {
+    text-align: center;
+    padding: 80px 20px;
+}
+.heading img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    
+}
+.heading h1 {
+    font-size: 50px;
+}
+
+.btn1{
+    margin-right: 10px;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: rgb(167 139 250); /* Blue color */
+    color: black;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-btn:hover {
+    opacity: 0.5; /* Darker blue */
+    transform: scale(1.05);
+}
+
+.download-btn:active {
+    transform: scale(0.98);
+}
+
+
+.heading button{
+    display: inline-block;
+    background-color: rgb(167 139 250); /* Blue color */
+    color: black;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.heading button:hover {
+    opacity: 0.5; /* Darker blue */
+    transform: scale(1.05);
+}
+
+.download-btn:active {
+    transform: scale(0.98);
+}
+
+/* About Me */
+.about {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-in{
+    padding: 10px 20px;
+    height: 75vh;
+    width: 90vw;
+    background-color: #141a23;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.image{
+    width: 235px;
+    padding: 5px;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.image p{
+    opacity: 0.7;
+}
+
+.about-me{
+    margin-right: 110px;
+    padding-left: 193px;
+}
+
+.about-me h2{
+    display: flex;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    /* display: inline-block; */
+    border-bottom: 1px solid white;
+    border-radius: 2px;
+    padding-bottom: 2px;
+}
+
+.about p {
+    font-size: 17px;
+    /* width: 500px; */
+    margin: auto;
+    color: #c9d1d9;
+}
+
+/* Skills */
+.skills {
+    font-size: large;
+    padding: 50px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.skills-in{
+    padding: 10px 20px;
+    height: 130vh;
+    width: 90vw;
+    background-color: #141a23;
+    border-radius: 10px;
+}
+
+.skills h1{
+    color: white;
+    display: inline-block;
+    font-size: 50px;
+    font-weight: 300px;
+    border-bottom: 5px solid rgb(167 139 250);
+}
+
+.skills p{
+    font-size: 15px;
+    opacity: 0.6;
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+
+
+.skill-row-1{
+    /* background-color: red; */
+    height: 50vh;
+    width: 90vw;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.skill-box h2{
+    color: white;
+}
+
+.skill-box img{
+    height: 4rem;
+    width: 4rem;
+}
+
+.skill-row-2{
+    /* background-color: red; */
+    height: 50vh;
+    width: 90vw;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.skill-card-1{
+    /* background-color: pink; */
+    margin: 20px;
+}
+
+.skill-card-2{
+    /* background-color: pink; */
+    margin: 20px;
+}
+
+.skill-card-3{
+    /* background-color: pink; */
+    margin: 20px;
+}
+
+.skill-card-1 p{
+    margin-top: 20px;
+}
+
+.skill-card-2 p{
+    margin-top: 20px;
+}
+.skill-card-3 p{
+    margin-top: 20px;
+}
+
+/* Projects */
+.projects {
+    padding: 50px 20px;
+    text-align: center;
+    opacity: 0.7;
+}
+.projects .project {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #30363d;
+    border-radius: 5px;
+    display: inline-block;
+    width: 300px;
+    background: #161b22;
+    color: #c9d1d9;
+}
+
+/* Button */
+.github-btn {
+    display: inline-block;
+  padding: 8px 10px;
+  background-color:  #24292e; /* green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.github-btn:hover {
+    background-color: #444c56;
+}
+
+.live-demo {
+  display: inline-block;
+  padding: 8px 10px;
+  background-color:  #24292e; /* green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.desc-btn {
+  display: inline-block;
+  padding: 8px 10px;
+  background-color:  #24292e; /* green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.desc-btn:hover {
+    background-color: #444c56;
+}
+
+.desc-popup {
+    display: none;
+    position: absolute;
+    bottom: 120%; /* popup above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    width: 250px;
+    z-index: 999;
+}
+
+.desc-popup::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+
+
+
+
+
+.live-demo:hover {
+    background-color: #444c56;
+}
+
+.projects .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.show-more-btn {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: #623091; /* A pleasant purple-blue shade */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.show-more-btn:hover {
+    background-color: #574b90;
+    transform: translateY(-2px);
+}
+
+.show-more-btn:active {
+    transform: translateY(0px);
+    background-color: #4834d4;
+}
+
+
+
+/* Ensure your project content is above the bubbles */
+.projects > *:not(.bubble-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Contact Form */
+
+.contact {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.contact-in h2{
+    font-size: 40px;
+    font-weight: 10px;
+    color: white;
+    margin-right: 650px;
+    border-bottom: 3px solid rgb(167 139 250);
+    display: inline-block;
+}
+
+.contact-in img{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: start;
+    border-radius: 50%;
+}
+
+.contact-in{
+    padding: 10px 20px;
+    height: 75vh;
+    width: 90vw;
+    background-color: #141a23;
+    border-radius: 10px;
+}
+.contact form {
+    width: 400px;
+    /* margin: auto; */
+    text-align: left;
+}
+
+.form{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact form input,
+.contact form textarea,
+.contact form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #30363d;
+    background: #161b22;
+    color: #c9d1d9;
+}
+.contact form button {
+    background: #238636;
+    color: white;
+    cursor: pointer;
+}
+.contact form button:hover {
+    background: #2ea043;
+}
+
+/* Footer */
+footer {
+    background-color: #14181c;
+    color: #c9d1d9;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.7;   
+}
+
+footer a {
+    color: #58a6ff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+
+/* Animation using 3js */
+
+.about {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent; /* So canvas shows through */
+  }
+  
+  .about-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  #aboutCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+  }
+  
+  .about-in {
+    position: relative;
+    z-index: 1;
+  }
+  
+
+
+
+
+
+
+
